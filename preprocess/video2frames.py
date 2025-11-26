@@ -1,4 +1,5 @@
 #hepl code i used to extract <= 100 representative frames from video file and save them as images
+
 from pathlib import Path
 import cv2
 import os 
@@ -7,14 +8,15 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser(description='extract frames from video') 
     parser.add_argument('--input', type=str, default=None, help='path of the input video file')
-    parser.add_argument('--save_directoty', type=str, default=None, help='path where to save the results')
+    parser.add_argument('--save_directory', type=str, default=None, help='path where to save the results')
     parser.add_argument('--divider', type=int, default=8, help='divider to select frames')
     return parser.parse_args()
 
 args = get_args()
 input = args.input
-save_directory = args.save_directoty
-frame_count_divider = args.divider # Save every 8th frame to get approximately 100 frames from my video. Will vary based on input video length
+save_directory = args.save_directory
+frame_count_divider = args.divider # Save every 8th frame to get approximately 100 frames from my video.
+                                                        # Will vary based on input video length
 
 cap = cv2.VideoCapture(input)
 

@@ -1,6 +1,5 @@
 
 from pathlib import Path
-
 import open3d as o3d
 import numpy as np  
 
@@ -12,8 +11,6 @@ def load_camera_poses() -> list[tuple[np.ndarray, np.ndarray]]:
             if line.startswith("#") or len(line.strip()) == 0:
                 continue
             elems = line.split()
-            _ = int(elems[0])
-            _ = int(elems[1])
             qvec = np.array([float(elems[2]), float(elems[3]),
                             float(elems[4]), float(elems[5])])
             tvec = np.array([float(elems[6]), float(elems[7]), float(elems[8])])
